@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <section>
+      <main>
+        <header>
+          <h4 class="theme-color">calc</h4>
+          <div class="header__right">
+            <span class="theme-color">theme</span>
+            <div class="input__values">
+              <div class="input__values-number">
+                <span class="theme-color">1</span>
+                <span class="theme-color">2</span>
+                <span class="theme-color">3</span>
+              </div>
+              <div class="header__input">
+                <input type="range" min="1" max="3" value="1" class="theme-1"/>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="value__content">
+          <span class="value__content-calculated theme-color" id="prev-value">0</span>
+          <p class="theme-color" id="current-value" aria-placeholder="12">0</p>
+        </div>
+        <div class="calculator-keys">
+          <button type="button" value="7" class="number-theme">7</button>
+          <button type="button" value="8" class="number-theme">8</button>
+          <button type="button" value="9" class="number-theme">9</button>
+          <button type="button" class="delete" value="all-clear">DEL</button>
+
+          <button type="button" value="4" class="number-theme">4</button>
+          <button type="button" value="5" class="number-theme">5</button>
+          <button type="button" value="6" class="number-theme">6</button>
+          <button type="button" class="operator number-theme" value="+" >+</button>
+
+          <button type="button" value="1" class="number-theme">1</button>
+          <button type="button" value="2" class="number-theme">2</button>
+          <button type="button" value="3" class="number-theme">3</button>
+          <button type="button" class="operator number-theme" value="-">-</button>
+          <button type="button" class="decimal number-theme" value=".">.</button>
+          <button type="button" value="0" class="number-theme">0</button>
+          <button type="button" class="operator number-theme" value="/">/</button>
+          <button type="button" class="operator number-theme" value="*" >X</button>
+
+
+          <button type="button" class="reset" value="reset">RESET</button>
+
+          <button type="button" class="equal-sign" value="=">=</button>
+        </div>
+      </main>
+    </section>
+  </body>
+</html>

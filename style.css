@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: League Spartan;
+  background: #3a4663;
+}
+
+section {
+  width: 50%;
+  /* background: #000; */
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* header section */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h4 {
+  color: #fff;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.533px;
+}
+
+header .header__right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+header .header__right span {
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: -15px;
+}
+
+header .header__right .input__values {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header .header__right .input__values span {
+  margin: 5px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+/* input section */
+
+.header__input {
+  width: 71px;
+  height: 26px;
+  background: #242d44;
+  border-radius: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__input input[type="range"] {
+  -webkit-appearance: none;
+  width: 90%;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  overflow: visible;
+  background-color: #d03f2f;
+}
+.theme-1::-webkit-slider-thumb {
+  background-color: #d03f2f !important;
+}
+.theme-2::-webkit-slider-thumb {
+  background-color: #c85402 !important;
+}
+.theme-3::-webkit-slider-thumb {
+  background-color: #00ded0 !important;
+}
+/* value content */
+.value__content {
+  margin: 30px 0;
+  width: 540px;
+  height: 128px;
+  border-radius: 10px;
+  background: #181f33;
+
+  position: relative;
+}
+.value__content span {
+  position: absolute;
+  color: #c1c1c1;
+  right: 10px;
+  top: 10px;
+  font-size: 1.2rem;
+}
+.value__content p {
+  position: absolute;
+  color: #c1c1c1;
+  right: 10px;
+  top: 50px;
+  color: #fff;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -0.933px;
+}
+/* button area */
+.calculator-keys {
+  width: 540px;
+  height: 480px;
+  flex-shrink: 0;
+  padding: 30px;
+  border-radius: 10px;
+  background: #242d44;
+  gap: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+button {
+  border: none;
+  text-align: center;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.667px;
+
+  border-radius: 10px;
+  background: #eae3dc;
+  box-shadow: 0px -4px 0px 0px #b3a497 inset;
+  cursor: pointer;
+}
+
+.delete {
+  color: #ffffff;
+  border-radius: 10px;
+  background: #647198;
+  box-shadow: 0px -4px 0px 0px #414e73 inset;
+}
+
+.reset {
+  border-radius: 10px;
+  background: #647198;
+  box-shadow: 0px -4px 0px 0px #414e73 inset;
+  color: #ffffff;
+  grid-column: span 2; /* This makes the button span 2 columns */
+}
+
+.equal-sign {
+  border-radius: 10px;
+  background: #d03f2f;
+  box-shadow: 0px -4px 0px 0px #93261a inset;
+  color: #ffffff;
+
+  grid-column: span 2; /* This makes the button span 2 columns */
+}
+
+@media (max-width: 800px) {
+  section {
+    width: 427px;
+    margin-top: 130px;
+  }
+
+  main .value__content {
+    width: 100%;
+  }
+  main .calculator-keys {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  section {
+    width: 327px;
+  }
+
+  main .value__content {
+    width: 100%;
+  }
+  main .calculator-keys {
+    width: 100%;
+  }
+  .calculator-keys button {
+    width: 60px;
+    height: 64px;
+  }
+  .calculator-keys .delete{
+    color: #FFF;
+font-size: 20px;
+font-weight: 700;
+letter-spacing: -0.333px;
+  }
+  .calculator-keys .reset {
+    width: 133px;
+    height: 64px;
+  }
+  .calculator-keys .equal-sign {
+    width: 133px;
+    height: 64px;
+  }
+}
