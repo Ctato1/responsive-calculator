@@ -19,68 +19,69 @@ let current,
   checkOperation = "",
   isDot = false;
 
-keys.addEventListener("click", (e) => {
-  let target = e.target.value;
-
-  if (/[0-9]/.test(target)) {
-    let selectedNum = target;
-    if (!clicked) {
-      currentValue.textContent = "";
-      clicked = true;
+  keys.addEventListener("click", (e) => {
+    let target = e.target.value;
+    console.log(target);
+  
+    if (!target) return; // Return early if the target has no value
+  
+    // Store the expression as a string
+    if (!/[=]/.test(target)) {
+      // If target is not '='
+      if (target === "reset") {
+        resetCalculator();
+        return;
+      }
+      if (target === "all-clear") {
+        // Handle deleting the last entry
+        currentValue.textContent = currentValue.textContent.slice(0, -1);
+        current = currentValue.textContent;
+        return;
+      }
+  
+      if (!clicked) {
+        currentValue.textContent = "";
+        clicked = true;
+      }
+  
+      if (target === "." && !isDot) {
+        currentValue.textContent += ".";
+        isDot = true;
+      } else if (/[0-9]/.test(target)) {
+        currentValue.textContent += target; 
+        current = currentValue.textContent;
+      } else if (["-", "+", "/", "*"].includes(target)) {
+        if (currentValue.textContent) {
+          prevValue.textContent = currentValue.textContent;
+          currentValue.textContent += ` ${target} `;
+        }
+        isDot = false; 
+      }
+    } else if (target === "=") {
+      try {
+        
+        let expression = currentValue.textContent.replace(/\s+/g, '');
+        if (expression) {
+          let result = eval(currentValue.textContent); 
+          currentValue.textContent = result.toFixed(2); 
+          prevValue.textContent = "";
+          current = result.toString(); 
+        }
+      } catch (error) {
+        currentValue.textContent = "Error"; 
+      }
     }
-    currentValue.textContent += +selectedNum;
-    current = +currentValue.textContent;
-  }
-
-  if (target == "." && !isDot) {
-    currentValue.textContent += ".";
-    isDot = true;
-  }
-
-  if (["-", "+", "/", "*"].includes(target)) {
-    textControl(target);
-  }
-
-  if (target === "all-clear" && current) {
-    let numberString = current.toString();
-    current = +numberString.slice(0, -1);
-    currentValue.textContent = current;
-    if (numberString.length === 1) {
-      current = 0;
-      currentValue.textContent = current;
-    }
-  }
-
-  if (target === "reset") {
-    location.reload();
-  }
-
-  if (target === "=" && checkOperation && clicked) {
-    let result = operation(checkOperation);
-    prevValue.textContent = "0";
-    current = result;
-    currentValue.textContent = result.toFixed(2);
+  });
+  
+  function resetCalculator() {
+    current = "";
+    prev = "";
     clicked = false;
+    isDot = false;
+    currentValue.textContent = "0";
+    prevValue.textContent = "0";
   }
-});
-
-function textControl(target) {
-  isDot = false;
-  checkOperation = target;
-  clicked = false;
-  prev = current;
-  prevValue.textContent = prev;
-
-  current = "";
-  currentValue.textContent = "0";
-}
-
-function operation(oper) {
-  if (oper === "-") return prev - current;
-  if (oper === "+") return prev + current;
-  if (oper === "/") return prev / current;
-  if (oper === "*") return prev * current;
-}
+  
 
 input.addEventListener("input", (e) => {
   let value = +e.target.value;

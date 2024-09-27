@@ -16,7 +16,7 @@ body {
   background: #3a4663;
 }
 
-section {
+main {
   width: 50%;
   /* background: #000; */
   height: 50%;
@@ -182,7 +182,7 @@ button {
 }
 
 @media (max-width: 800px) {
-  section {
+  main {
     width: 427px;
     margin-top: 130px;
   }
@@ -196,7 +196,7 @@ button {
 }
 
 @media (max-width: 500px) {
-  section {
+  main {
     width: 327px;
   }
 
