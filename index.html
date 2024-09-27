@@ -21,14 +21,15 @@
                 <span class="theme-color">3</span>
               </div>
               <div class="header__input">
-                <input type="range" min="1" max="3" value="1" class="theme-1"/>
+                <label for="theme-range" class="theme-color" hidden aria-hidden="true">Adjust Theme</label>
+                <input type="range" id="theme-range" min="1" max="3" value="1" class="theme-1"/>
               </div>
             </div>
           </div>
         </header>
         <div class="value__content">
           <span class="value__content-calculated theme-color" id="prev-value">0</span>
-          <p class="theme-color" id="current-value" aria-placeholder="12">0</p>
+          <p class="theme-color" id="current-value">0</p>
         </div>
         <div class="calculator-keys">
           <button type="button" value="7" class="number-theme">7</button>
